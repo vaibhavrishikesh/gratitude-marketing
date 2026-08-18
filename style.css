@@ -334,16 +334,30 @@ article h2 { margin-top: 40px; }
 .other-pains a:hover { color: var(--text); }
 
 .flow {
-  margin-top: 12px;
+  --flow-line: rgba(7, 20, 18, 0.12);
+  margin: 28px -12px 8px;
+  padding: 8px 28px 12px;
+  background:
+    radial-gradient(80% 50% at 100% 0%, rgba(94, 200, 176, 0.16), transparent 55%),
+    #d7efe6;
+  color: #14352c;
+  border-radius: 28px;
 }
+
+.flow h2 { color: #0c241e; }
+.flow h2 em { color: #1a7a64; }
+.flow p { color: #2d5a4e; }
+.flow .n { color: #1a7a64; }
 
 .flow-step {
   display: grid;
   gap: 28px;
   padding: 48px 0;
-  border-top: 1px solid var(--hairline);
+  border-top: 1px solid var(--flow-line);
   align-items: center;
 }
+
+.flow-step:first-child { border-top: none; }
 
 .flow-copy .n {
   display: block;
@@ -368,7 +382,7 @@ article h2 { margin-top: 40px; }
   height: auto;
   border-radius: 28px;
   border: 1px solid var(--hairline);
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 18px 40px rgba(12, 36, 30, 0.22);
 }
 
 @media (min-width: 760px) {
