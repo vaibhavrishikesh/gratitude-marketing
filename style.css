@@ -366,14 +366,15 @@ article h2 { margin-top: 0; }
 .other-pains a:hover { color: var(--text); }
 
 .flow {
-  --flow-line: rgba(7, 20, 18, 0.12);
   margin: 20px -12px 8px;
-  padding: 12px 28px 20px;
+  padding: 20px 16px;
   background:
     radial-gradient(80% 50% at 100% 0%, rgba(94, 200, 176, 0.16), transparent 55%),
     #d7efe6;
   color: #14352c;
   border-radius: 28px;
+  display: grid;
+  gap: 20px;
 }
 
 .flow h2 { color: #0c241e; }
@@ -382,14 +383,13 @@ article h2 { margin-top: 0; }
 
 .flow-step {
   display: grid;
-  gap: 28px;
-  padding: 64px 0;
-  border-top: 1px solid var(--flow-line);
+  gap: 24px;
+  padding: 28px 22px;
   align-items: center;
+  background: rgba(255, 255, 255, 0.62);
+  border: 1px solid rgba(12, 36, 30, 0.08);
+  border-radius: 22px;
 }
-
-.flow-step:first-child { border-top: none; padding-top: 36px; }
-.flow-step:last-child { padding-bottom: 40px; }
 
 .flow-copy .n {
   display: inline-block;
@@ -426,12 +426,9 @@ article h2 { margin-top: 0; }
 @media (min-width: 760px) {
   .flow-step {
     grid-template-columns: 1fr 280px;
-    gap: 48px;
-    padding: 80px 0;
+    gap: 40px;
+    padding: 36px 32px;
   }
-
-  .flow-step:first-child { padding-top: 48px; }
-  .flow-step:last-child { padding-bottom: 56px; }
 
   .flow-step:nth-child(even) .flow-copy { order: 2; }
   .flow-step:nth-child(even) .flow-phone { order: 1; }
