@@ -120,7 +120,15 @@ def build_first_screenshot() -> Path:
     return out_file
 
 
-def build_screenshot(shot_file: str, kicker: str, headline: str, sub: str, out_name: str) -> Path:
+def build_screenshot(
+    shot_file: str,
+    kicker: str,
+    headline: str,
+    sub: str,
+    out_name: str,
+    phone_width: int = 72,
+    phone_bottom: int = 80,
+) -> Path:
     shot = (ROOT / "img" / shot_file).resolve()
     out_dir = ROOT / "marketing" / "appstore" / "out"
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -179,18 +187,11 @@ def build_screenshot(shot_file: str, kicker: str, headline: str, sub: str, out_n
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
-      bottom: 80px;
-      width: 72%;
+      bottom: {phone_bottom}px;
+      width: {phone_width}%;
       border-radius: 70px;
       border: 2px solid rgba(190, 245, 234, 0.30);
       box-shadow: 0 38px 80px rgba(0, 0, 0, 0.40);
-    }}
-    .brand {{
-      position: absolute;
-      left: 100px;
-      bottom: 48px;
-      font-size: 36px;
-      color: #9ec9bf;
     }}
   </style>
 </head>
@@ -201,7 +202,6 @@ def build_screenshot(shot_file: str, kicker: str, headline: str, sub: str, out_n
     <div class="sub">{sub}</div>
   </div>
   <img class="phone" src="file://{shot}" />
-  <div class="brand">Gratitude Habit Builder</div>
 </body>
 </html>"""
 
@@ -221,7 +221,7 @@ SHOTS = [
         "file": "landing-02.jpg",
         "kicker": "Step 2 · Enforced",
         "headline": "Screen Time <em>keeps</em> you honest.",
-        "sub": "No sentence, no feed. Built on Apple's own control.",
+        "sub": "You were going to mindlessly scroll. Say one line first.",
         "out": "02-screen-time.png",
     },
     {
@@ -245,10 +245,27 @@ SHOTS = [
         "sub": "Per session, per day — you decide how often.",
         "out": "05-controls.png",
     },
+    {
+        "file": "landing-02.jpg",
+        "kicker": "Topic",
+        "headline": "Replace mindless scrolling with <em>gratitude</em> and affirmations.",
+        "sub": "One sentence before the app. Every time.",
+        "out": "06-mindless-scrolling-topic.png",
+        "phone_width": 64,
+        "phone_bottom": 36,
+    },
 ]
 
 
 if __name__ == "__main__":
     for s in SHOTS:
-        out = build_screenshot(s["file"], s["kicker"], s["headline"], s["sub"], s["out"])
+        out = build_screenshot(
+            s["file"],
+            s["kicker"],
+            s["headline"],
+            s["sub"],
+            s["out"],
+            s.get("phone_width", 72),
+            s.get("phone_bottom", 80),
+        )
         print(out)
