@@ -2,7 +2,9 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
-    { "source": "/blocker", "destination": "/", "permanent": true }
+    { "source": "/blocker", "destination": "/", "permanent": true },
+    { "source": "/thumb", "destination": "/", "permanent": true },
+    { "source": "/journal", "destination": "/", "permanent": true }
   ],
   "headers": [
     {
