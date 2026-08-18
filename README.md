@@ -6,7 +6,7 @@ Landing for ads / reels. Not the GitHub Pages legal site.
 - Legal: https://vaibhavrishikesh.github.io/gratitude-mindful-blocking/
 - Home: one gratitude, then the app (not a blocking-app pitch)
 - `/affirmation` — how the sentence is enforced (2–3×/day). Locking kam. WhatsApp 18 Aug 9:30.
-- `/affirmation` flow: live App Store shots (`img/app-controls.jpg` · `app-dashboard.jpg` · `app-library.jpg`). No AI infographic.
+- `/affirmation` flow: device shots 18 Aug (`img/landing-01.jpg` · `landing-02.jpg` · `landing-03.jpg`). Hero still, not a phone.
 - `/thumb` `/journal` `/blocker` all 301 to `/`
 - Visual: dark teal, Newsreader, impeccable craft-floor (no kickers, no emoji)
 
