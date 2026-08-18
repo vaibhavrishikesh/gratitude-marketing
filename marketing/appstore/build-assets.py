@@ -254,6 +254,15 @@ SHOTS = [
         "phone_width": 64,
         "phone_bottom": 36,
     },
+    {
+        "file": "landing-03.jpg",
+        "kicker": "New Topic Page",
+        "headline": "Replace mindless scrolling with <em>gratitude</em> and affirmations.",
+        "sub": "Turn each unlock into one mindful line.",
+        "out": "07-mindless-scrolling-topic-2.png",
+        "phone_width": 62,
+        "phone_bottom": 44,
+    },
 ]
 
 
