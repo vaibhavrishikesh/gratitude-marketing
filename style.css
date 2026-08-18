@@ -142,24 +142,23 @@ strong { color: var(--text); font-weight: 600; }
   align-items: center;
 }
 
-.hero-phone {
+.hero-still {
   margin: 0;
-  justify-self: center;
 }
 
-.hero-phone img {
+.hero-still img {
   display: block;
-  width: min(240px, 58vw);
+  width: 100%;
   height: auto;
-  border-radius: 28px;
+  border-radius: 18px;
   border: 1px solid var(--hairline);
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
+  object-fit: cover;
 }
 
 @media (min-width: 760px) {
   .hero-split {
-    grid-template-columns: 1fr 240px;
-    gap: 36px;
+    grid-template-columns: 1fr 1.05fr;
+    gap: 32px;
   }
 }
 
