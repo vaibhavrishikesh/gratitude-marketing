@@ -372,3 +372,23 @@ article h2 { margin-top: 40px; }
   color: var(--dim);
   font-size: 16px;
 }
+
+.beat-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  margin-bottom: 16px;
+}
+
+.infographic {
+  margin: 36px 0 8px;
+}
+
+.infographic img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 16px;
+  border: 1px solid var(--hairline);
+}
