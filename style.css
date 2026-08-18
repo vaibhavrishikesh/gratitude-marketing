@@ -60,10 +60,14 @@ header.site {
 }
 
 .wordmark {
-  font-size: 22px;
-  letter-spacing: 0.02em;
+  font-size: 18px;
+  letter-spacing: 0.01em;
   text-decoration: none;
   color: var(--text);
+}
+
+@media (min-width: 760px) {
+  .wordmark { font-size: 22px; }
 }
 
 nav a {
@@ -376,6 +380,20 @@ article h2 { margin-top: 0; }
   padding: 7px 12px 6px;
   border-radius: 999px;
   margin-bottom: 14px;
+}
+
+.flow-kicker {
+  display: inline-block;
+  margin: 2px 0 12px;
+  font-family: -apple-system, "Helvetica Neue", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #0f6b56;
+  border: 1px solid rgba(15, 107, 86, 0.25);
+  background: rgba(94, 200, 176, 0.16);
+  border-radius: 999px;
+  padding: 5px 10px;
 }
 
 .flow-copy h2 { margin: 0 0 14px; }
