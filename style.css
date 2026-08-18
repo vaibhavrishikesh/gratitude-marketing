@@ -332,3 +332,43 @@ article h2 { margin-top: 40px; }
 
 .other-pains a { color: var(--dim); }
 .other-pains a:hover { color: var(--text); }
+
+.beats {
+  list-style: none;
+  margin: 24px 0 20px;
+  display: grid;
+  gap: 12px;
+}
+
+@media (min-width: 720px) {
+  .beats { grid-template-columns: 1fr 1fr 1fr; }
+}
+
+.beats li {
+  border: 1px solid var(--hairline);
+  border-radius: 16px;
+  padding: 22px 20px 20px;
+  background: var(--card);
+}
+
+.beats .n {
+  display: block;
+  font-style: italic;
+  color: var(--accent);
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.beats strong {
+  display: block;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  line-height: 1.25;
+}
+
+.beats span {
+  display: block;
+  color: var(--dim);
+  font-size: 16px;
+}
