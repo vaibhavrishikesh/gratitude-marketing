@@ -136,32 +136,6 @@ strong { color: var(--text); font-weight: 600; }
 
 .hero { padding: 28px 0 8px; }
 
-.hero-split {
-  display: grid;
-  gap: 28px;
-  align-items: center;
-}
-
-.hero-still {
-  margin: 0;
-}
-
-.hero-still img {
-  display: block;
-  width: 100%;
-  height: auto;
-  border-radius: 18px;
-  border: 1px solid var(--hairline);
-  object-fit: cover;
-}
-
-@media (min-width: 760px) {
-  .hero-split {
-    grid-template-columns: 1fr 1.05fr;
-    gap: 32px;
-  }
-}
-
 .cta {
   display: inline-block;
   background: var(--accent);
