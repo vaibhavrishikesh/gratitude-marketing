@@ -159,6 +159,38 @@ strong { color: var(--text); font-weight: 600; }
 .cta:hover { transform: translateY(-1px); }
 .cta:active { transform: scale(0.96); }
 
+.cta-badge {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  background: #0a0a0a;
+  color: #fff;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  border-radius: 12px;
+  padding: 9px 14px 10px;
+  margin: 20px 0 8px;
+  transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cta-badge:hover { transform: translateY(-1px); }
+.cta-badge:active { transform: scale(0.98); }
+
+.cta-badge .mini {
+  font-family: -apple-system, "Helvetica Neue", sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
+
+.cta-badge .big {
+  font-family: -apple-system, "Helvetica Neue", sans-serif;
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.1;
+}
+
 .subcta {
   display: block;
   font-size: 13px;
