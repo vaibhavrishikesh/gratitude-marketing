@@ -47,7 +47,8 @@ def build_screenshot(
     phone_width: int = 72,
     phone_bottom: int = 80,
 ) -> Path:
-    shot = (ROOT / "img" / shot_file).resolve()
+    shot_path = Path(shot_file)
+    shot = shot_path if shot_path.is_absolute() else (ROOT / "img" / shot_file).resolve()
     out_dir = ROOT / "marketing" / "appstore" / "out"
     out_dir.mkdir(parents=True, exist_ok=True)
     out_file = out_dir / out_name
@@ -150,13 +151,13 @@ SHOTS = [
         "out": "03-library.png",
     },
     {
-        "file": "landing-02.jpg",
-        "kicker": "Step 4 · Mindless Scroll",
-        "headline": "Replace scrolling with <em>gratitude</em>.",
-        "sub": "You were going to open the app anyway.",
+        "file": "/Users/vaibhav/workspace/brain/captures/gratitude-2026-08-18/asc/asc-4.png",
+        "kicker": "Step 4 · Controls",
+        "headline": "Your schedule. <em>Your rules.</em>",
+        "sub": "Set one pause per session, with a 6h unlock window.",
         "out": "04-mindless-scroll.png",
-        "phone_width": 64,
-        "phone_bottom": 44,
+        "phone_width": 62,
+        "phone_bottom": 34,
     },
     {
         "file": "landing-01.jpg",
