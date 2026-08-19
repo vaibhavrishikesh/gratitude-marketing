@@ -46,12 +46,33 @@ def build_screenshot(
     out_name: str,
     phone_width: int = 72,
     phone_bottom: int = 80,
+    out_dir: str = "out",
+    theme: str = "light",
 ) -> Path:
     shot_path = Path(shot_file)
     shot = shot_path if shot_path.is_absolute() else (ROOT / "img" / shot_file).resolve()
-    out_dir = ROOT / "marketing" / "appstore" / "out"
-    out_dir.mkdir(parents=True, exist_ok=True)
-    out_file = out_dir / out_name
+    out_folder = ROOT / "marketing" / "appstore" / out_dir
+    out_folder.mkdir(parents=True, exist_ok=True)
+    out_file = out_folder / out_name
+
+    if theme == "dark":
+        bg = "radial-gradient(80% 45% at 20% 10%, rgba(85,188,168,0.28), transparent 70%), radial-gradient(60% 40% at 80% 80%, rgba(95,172,155,0.20), transparent 72%), linear-gradient(180deg, #071b19 0%, #051412 100%)"
+        text_color = "#e9f2ef"
+        kicker_color = "#66d6be"
+        h1_color = "#e9f2ef"
+        em_color = "#66d6be"
+        sub_color = "#bfd5cf"
+        border = "2px solid rgba(190,245,234,0.30)"
+        shadow = "0 38px 80px rgba(0,0,0,0.40)"
+    else:
+        bg = "radial-gradient(80% 50% at 20% 10%, rgba(94,200,176,0.22), transparent 60%), radial-gradient(60% 40% at 90% 90%, rgba(94,200,176,0.12), transparent 60%), linear-gradient(180deg, #f4faf7 0%, #dff0ea 100%)"
+        text_color = "#1a2e2a"
+        kicker_color = "#0f6b56"
+        h1_color = "#0c1f1b"
+        em_color = "#0f6b56"
+        sub_color = "#3d6b60"
+        border = "2px solid rgba(12,36,30,0.12)"
+        shadow = "0 38px 80px rgba(12,36,30,0.28)"
 
     html = f"""<!doctype html>
 <html>
@@ -64,13 +85,10 @@ def build_screenshot(
       height: {OUT_H}px;
       overflow: hidden;
       font-family: Georgia, "Times New Roman", serif;
-      color: #e9f2ef;
+      color: {text_color};
     }}
     body {{
-      background:
-        radial-gradient(80% 45% at 20% 10%, rgba(85, 188, 168, 0.28), transparent 70%),
-        radial-gradient(60% 40% at 80% 80%, rgba(95, 172, 155, 0.20), transparent 72%),
-        linear-gradient(180deg, #071b19 0%, #051412 100%);
+      background: {bg};
       position: relative;
     }}
     .title-wrap {{
@@ -84,7 +102,7 @@ def build_screenshot(
       font-size: 28px;
       letter-spacing: .14em;
       text-transform: uppercase;
-      color: #66d6be;
+      color: {kicker_color};
       margin-bottom: 28px;
     }}
     h1 {{
@@ -93,14 +111,15 @@ def build_screenshot(
       font-weight: 500;
       max-width: 10.5ch;
       text-wrap: balance;
+      color: {h1_color};
     }}
-    h1 em {{ color: #66d6be; font-style: italic; }}
+    h1 em {{ color: {em_color}; font-style: italic; }}
     .sub {{
       margin-top: 36px;
       max-width: 25ch;
       font-size: 44px;
       line-height: 1.2;
-      color: #bfd5cf;
+      color: {sub_color};
     }}
     .phone {{
       position: absolute;
@@ -109,8 +128,8 @@ def build_screenshot(
       bottom: {phone_bottom}px;
       width: {phone_width}%;
       border-radius: 70px;
-      border: 2px solid rgba(190, 245, 234, 0.30);
-      box-shadow: 0 38px 80px rgba(0, 0, 0, 0.40);
+      border: {border};
+      box-shadow: {shadow};
     }}
   </style>
 </head>
@@ -159,19 +178,18 @@ SHOTS = [
         "phone_width": 62,
         "phone_bottom": 34,
     },
-    {
-        "file": "landing-01.jpg",
-        "kicker": "Step 5 · Consistency",
-        "headline": "Motivation starts it. <em>Consistency</em> builds it.",
-        "sub": "Two or three times a day — without remembering.",
-        "out": "05-consistency.png",
-        "phone_width": 62,
-        "phone_bottom": 36,
-    },
 ]
 
 
 if __name__ == "__main__":
+    import argparse
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--theme", choices=["light", "dark"], default="light")
+    args = parser.parse_args()
+
+    out_dir = f"out-{args.theme}"
+
     for s in SHOTS:
         out = build_screenshot(
             s["file"],
@@ -181,5 +199,7 @@ if __name__ == "__main__":
             s["out"],
             s.get("phone_width", 72),
             s.get("phone_bottom", 80),
+            out_dir=out_dir,
+            theme=args.theme,
         )
         print(out)
