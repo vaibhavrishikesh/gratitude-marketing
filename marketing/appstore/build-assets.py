@@ -132,7 +132,7 @@ SHOTS = [
     {
         "file": "landing-02.jpg",
         "kicker": "Step 1 · Say It",
-        "headline": "One sentence. Then the <em>app</em>.",
+        "headline": "Speak one affirmation. Then the <em>app</em>.",
         "sub": "Speak or type — ten seconds before the scroll.",
         "out": "01-sentence.png",
     },
