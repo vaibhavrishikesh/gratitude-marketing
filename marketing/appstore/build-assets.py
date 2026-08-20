@@ -56,14 +56,20 @@ def build_screenshot(
     out_file = out_folder / out_name
 
     if theme == "dark":
-        bg = "radial-gradient(80% 45% at 20% 10%, rgba(85,188,168,0.28), transparent 70%), radial-gradient(60% 40% at 80% 80%, rgba(95,172,155,0.20), transparent 72%), linear-gradient(180deg, #071b19 0%, #051412 100%)"
-        text_color = "#e9f2ef"
-        kicker_color = "#66d6be"
-        h1_color = "#e9f2ef"
-        em_color = "#66d6be"
-        sub_color = "#bfd5cf"
-        border = "2px solid rgba(190,245,234,0.30)"
-        shadow = "0 38px 80px rgba(0,0,0,0.40)"
+        # Match the cosmic hero: deep teal-black, nebula, sunrise glow
+        bg = (
+            "radial-gradient(120% 55% at 50% -5%, rgba(40, 180, 160, 0.38), transparent 58%),"
+            "radial-gradient(90% 40% at 50% 108%, rgba(255, 190, 70, 0.42), transparent 58%),"
+            "radial-gradient(40% 25% at 18% 22%, rgba(90, 220, 200, 0.16), transparent 70%),"
+            "linear-gradient(180deg, #021716 0%, #000d0c 52%, #020808 100%)"
+        )
+        text_color = "#f4fffb"
+        kicker_color = "#4ef0d4"
+        h1_color = "#ffffff"
+        em_color = "#4ef0d4"
+        sub_color = "rgba(244, 255, 251, 0.78)"
+        border = "2px solid rgba(78, 240, 212, 0.22)"
+        shadow = "0 38px 90px rgba(0, 0, 0, 0.55)"
     else:
         bg = "radial-gradient(80% 50% at 20% 10%, rgba(94,200,176,0.22), transparent 60%), radial-gradient(60% 40% at 90% 90%, rgba(94,200,176,0.12), transparent 60%), linear-gradient(180deg, #f4faf7 0%, #dff0ea 100%)"
         text_color = "#1a2e2a"
@@ -73,6 +79,25 @@ def build_screenshot(
         sub_color = "#3d6b60"
         border = "2px solid rgba(12,36,30,0.12)"
         shadow = "0 38px 80px rgba(12,36,30,0.28)"
+
+    stars_css = ""
+    if theme == "dark":
+        stars_css = """
+    body::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        radial-gradient(1.5px 1.5px at 12% 18%, rgba(255,255,255,.55) 50%, transparent 51%),
+        radial-gradient(1.5px 1.5px at 78% 12%, rgba(255,255,255,.45) 50%, transparent 51%),
+        radial-gradient(1px 1px at 88% 28%, rgba(255,255,255,.4) 50%, transparent 51%),
+        radial-gradient(1.5px 1.5px at 22% 38%, rgba(255,255,255,.35) 50%, transparent 51%),
+        radial-gradient(1px 1px at 64% 22%, rgba(255,255,255,.5) 50%, transparent 51%),
+        radial-gradient(1px 1px at 40% 14%, rgba(255,255,255,.4) 50%, transparent 51%),
+        radial-gradient(1.5px 1.5px at 8% 72%, rgba(255,255,255,.28) 50%, transparent 51%),
+        radial-gradient(1px 1px at 92% 64%, rgba(255,255,255,.32) 50%, transparent 51%);
+    }"""
 
     html = f"""<!doctype html>
 <html>
@@ -91,6 +116,7 @@ def build_screenshot(
       background: {bg};
       position: relative;
     }}
+    {stars_css}
     .title-wrap {{
       position: absolute;
       top: 150px;
@@ -185,10 +211,11 @@ if __name__ == "__main__":
     import argparse
 
     parser = argparse.ArgumentParser()
-    parser.add_argument("--theme", choices=["light", "dark"], default="light")
+    parser.add_argument("--theme", choices=["light", "dark"], default="dark")
+    parser.add_argument("--out-dir", default="")
     args = parser.parse_args()
 
-    out_dir = f"out-{args.theme}"
+    out_dir = args.out_dir or ("out" if args.theme == "dark" else f"out-{args.theme}")
 
     for s in SHOTS:
         out = build_screenshot(
