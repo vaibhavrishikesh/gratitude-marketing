@@ -12,9 +12,9 @@ import tempfile
 ROOT = Path(__file__).resolve().parents[2]
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 
-# iPhone 6.9" portrait screenshot requirement
-OUT_W = 1290
-OUT_H = 2796
+# iPhone 6.5" portrait screenshot requirement (ASC slot)
+OUT_W = 1284
+OUT_H = 2778
 
 
 def render_html_to_png(html: str, out_path: Path) -> None:
