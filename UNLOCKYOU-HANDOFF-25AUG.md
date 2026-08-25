@@ -21,7 +21,7 @@
 Two commits on `main`:
 
 1. **`f03ac3f`** — Pass 1 polish: Coach tab removed, home streak removed, green card colors, smoother card swipe, About in Controls, library tap→retry, Gemini `--` strip, font bumps.
-2. **Latest** — Full onboarding redesign (9 screens) + shared chrome + paywall layout + UnlockYou brand in shield/settings/Gemini.
+2. **`dd5d780`** — Full onboarding redesign (9 screens) + shared chrome + paywall layout + UnlockYou brand in shield/settings/Gemini.
 
 ### Onboarding (all 9 screens)
 
