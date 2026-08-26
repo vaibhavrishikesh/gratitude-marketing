@@ -12,7 +12,7 @@
 | **Remote** | `github.com:vaibhavgt/gratitudedaily.git` |
 | **Branch** | `main` |
 | **Pull** | `git pull origin main` |
-| **Display** | UnlockYou |
+| **Display** | UnlockYou (`CFBundleDisplayName` — was still `Gratitude` until fixed on main) |
 | **Bundle** | `com.tranquilwaters.gratitudedaily` |
 | **Open** | `gratitudedaily.xcodeproj` → scheme `gratitudedaily` → Run |
 
