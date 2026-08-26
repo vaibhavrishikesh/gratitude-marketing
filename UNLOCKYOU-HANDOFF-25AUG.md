@@ -1,79 +1,60 @@
-# UnlockYou onboarding redesign — handoff · 25 Aug 2026
+# UnlockYou onboarding — handoff · 26 Aug 2026
 
-**Owner resting.** Next session: device QA only — no new design work unless something looks off on phone.
+**Switch Mac / build elsewhere.** Code is on `main` (pushed). Screen merge still deferred.
 
 ---
 
-## Repo
+## Repo (build here)
 
 | | |
 |---|---|
 | **Path** | `~/workspace/gratitudedaily` |
+| **Remote** | `github.com:vaibhavgt/gratitudedaily.git` |
 | **Branch** | `main` |
-| **Display name** | UnlockYou |
-| **Bundle** | `com.tranquilwaters.gratitudedaily` (unchanged) |
-| **Design mocks** | `~/Desktop/aug_image/unlockyou/` (`screen01` … `screen09`) |
+| **Pull** | `git pull origin main` |
+| **Display** | UnlockYou |
+| **Bundle** | `com.tranquilwaters.gratitudedaily` |
+| **Open** | `gratitudedaily.xcodeproj` → scheme `gratitudedaily` → Run |
+
+**Dev step jump (scheme env):** `STARTUP_ONBOARDING_STEP=0`…`8` (hook…paywall). Forces onboarding even if completed.
 
 ---
 
-## Shipped in this push
+## What’s new since `dd5d780` (this push)
 
-Two commits on `main`:
+Meta polish pass — layout + decor, not funnel trim.
 
-1. **`f03ac3f`** — Pass 1 polish: Coach tab removed, home streak removed, green card colors, smoother card swipe, About in Controls, library tap→retry, Gemini `--` strip, font bumps.
-2. **`dd5d780`** — Full onboarding redesign (9 screens) + shared chrome + paywall layout + UnlockYou brand in shield/settings/Gemini.
-
-### Onboarding (all 9 screens)
-
-| # | Screen | Notes |
+| # | Screen | Shipped behavior |
 |---|---|---|
-| 1 | Hook | 38 days stat, coral sun card, white CTA |
-| 2 | Promise | Vertical timeline + “One private minute” card |
-| 3 | Time sink | 2×3 chips, coral selection, new labels |
-| 4 | Desire | Focus / Presence / Confidence / **Creativity** / **Rest** |
-| 5 | Science | Lock card + “Set up my ritual” |
-| 6 | Screen Time | Privacy card; honest copy |
-| 7 | Mic | Privacy card; **no** “audio never leaves device” claim |
-| 8 | Commitment | **Vow card** (defaults 1 gratitude · 6h saved silently) |
-| 9 | Paywall | Coral plan cards; **StoreKit prices only** |
+| 1 Hook | Canvas sunrise arcs + coral gradient `38` + glow rule; content vertically balanced |
+| 2 Promise | **Glow line only** (no Hook arcs); timeline spacing; demo chips **all start inactive**, tap to select; voice wave + sun card |
+| 3 Time sink | **Glow line only**; chips **start empty** (Continue disabled until pick); content shifted down |
+| 4 Desire | Shared **HeroArcHeader** (big arc) + title/list shifted down |
+| 5 Science | HeroArcHeader + shorter body + coral glow on lock |
+| 6 Screen Time | HeroArcHeader + privacy card |
+| 7 Mic | HeroArcHeader + honest “does not save recordings” |
+| 8 Commitment | HeroArcHeader + vow card |
+| 9 Paywall | HeroArcHeader + StoreKit prices; Weekly (not Monthly) |
 
-**Chrome:** `UNLOCKYOU` header + coral segment progress (current step only).
+**Shared chrome:** `OnboardingChrome.swift` — `OnboardingHorizonArc`, `OnboardingHeroArcHeader`, `OnboardingGlowRule`, `OnboardingPromiseDecor`, `OnboardingTimeSinkDecor`, disabled-CTA contrast, voice wave.
 
-**New file:** `gratitudedaily/Views/Onboarding/OnboardingChrome.swift`
-
----
-
-## Dev hooks
-
-```bash
-# Open a specific onboarding step (sim or device via Xcode scheme env)
-STARTUP_ONBOARDING_STEP=0   # hook … 8 = paywall
-```
-
-With `STARTUP_ONBOARDING_STEP` set, app opens onboarding even if `hasCompletedOnboarding` is true (screenshot/QA).
+**Asset (optional PNG):** `Assets.xcassets/OnboardingHorizonArc.imageset/` — Hook defaults to **Canvas** (`useImageAsset: false`); PNG kept for A/B.
 
 ---
 
-## Not done / next person
+## Deferred (do not do unless asked)
 
-1. **Device QA** — Run from **Xcode → your iPhone** (CLI install failed: no provisioning on this machine). Walk full funnel: Screen Time picker, mic permission, shield on blocked app, paywall loads products.
-2. **Paywall label** — Mock says “Monthly”; App Store product is **weekly** (`gratitudelock.pro.weekly`). UI shows Weekly unless ASC product changes.
-3. **App Store screenshots** — Mocks in `Desktop/aug_image/unlockyou/`; marketing shots in `gratitude-marketing/unlockyou-onboarding-shots/` (older sim captures — remake from device if submitting).
-4. **ASC / resubmit** — Only when Vaibhav is back and device QA is green.
-
----
-
-## Build
-
-Last verified: **xcodebuild** iOS Simulator iPhone 16 — **BUILD SUCCEEDED** (25 Aug 2026).
+- Merge Screen Time + Mic / trim 9 → fewer screens
+- ASC resubmit / App Store screenshots remake
+- Physical phone CLI install (needs signing on that Mac)
 
 ---
 
-## Related (other apps)
+## Other apps (unrelated)
 
-- **Shwaas ASC** — resolved 22 Aug; see `SHWAAS-ASC-STUCK-22AUG.md`.
-- **NIFTY paper engine** — fix in `marketmantri` `f47a8b6`; separate repo.
+- Shwaas ASC — see `SHWAAS-ASC-STUCK-22AUG.md` (resolved 22 Aug)
+- NIFTY paper engine — `marketmantri` (separate)
 
 ---
 
-*Get well, Vaibhav.*
+*Build on the other Mac from `main` after pull. Latest: **`e115c0e`**.*
