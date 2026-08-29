@@ -1,54 +1,29 @@
-# Shwaas ASC — 26 Aug 2026 update
+# Shwaas ASC — 29 Aug 2026
 
-## ✅ RESUBMITTED — 26 Aug ~2:33 PM — Waiting for Review
+## ✅ APPROVED — 1.0 Ready for Distribution · sale turning on
 
-ASC apps grid: **iOS 1.0 Waiting for Review**.
+**29 Aug ~9:10–9:18 IST (ASC screenshots):**
 
-**4 items (clean sheet):**
+- Version **1.0 Ready for Distribution** (build **8**)
+- Apps grid briefly showed **Removed from App Store** (sale was off)
+- Owner restored **Pricing and Availability** → **148 countries · Processing to Available**
+- Wait for Apple to flip → **Available** / Ready for Sale (minutes–hours)
 
-| Item | Type | Product ID / note |
-|---|---|---|
-| shwaas Premium | Subscription Group | — |
-| iOS App 1.0 (1.0.0 **(8)**) | App Version | same binary — no new IPA |
-| Pro Monthly | Subscription | `com.tranquilwaters.shwaas.pro.monthly` |
-| Pro Yearly | Subscription | `com.tranquilwaters.shwaas.pro.yearly` |
-
-**Not on sheet:** dead drafts + Pro Lifetime.
-
-**Resolution Center:** hard reply sent 26 Aug ~2:30 PM — old product names in Apple’s 2.3.2 note are **not** current submission; only `pro.monthly` / `pro.yearly`.
-
-**Do not:** Cancel Submission · attach build **7** · merge `main` · Add for Review any Drafts (4).
+**Do not:** re-submit · attach build 7 · merge `main` · touch Developer Rejected Drafts
 
 ---
 
-## 25–26 Aug — same 2.3.2 again (copy-paste reject)
+## Prior: 26 Aug resubmit (that got approved)
 
-Prior WfR (`1216ea23-…`, 22 Aug) came back **Rejected** 2.3.2 with the **same** wording:
+**4 items:** shwaas Premium + app **1.0 (8)** + Pro Monthly (`…pro.monthly`) + Pro Yearly (`…pro.yearly`).  
+Resolution reply: old `Monthly Subscription` / `Yearly Subscription` / `Lifetime Access` drafts were **not** on the sheet.
 
-- Lifetime Access / Monthly Subscription / Yearly Subscription (identical display name + description)
-- Duplicate promotional images bullet (promo images on Pro products were already empty)
+**Still in ASC Drafts (Developer Rejected) — never attach:**
 
-Apple message: *“The issues we previously identified still need your attention.”*
-
-**Root still true:** ASC still holds **Developer Rejected drafts** whose localizations match Apple’s letter:
-
-| Reference | Product ID prefix | Type | Status |
-|---|---|---|---|
-| monthly | `…subscription.m…` | Consumable | Developer Rejected |
-| yearly | `…subscription.y…` | Consumable | Developer Rejected |
-| lifetime | `…subscription.li…` | Non-Consumable | Developer Rejected |
-| Pro Lifetime | `…pro.lifetime` | Non-Consumable | Developer Rejected |
-
-**Live / correct products (paywall):**
-
-| Reference | Product ID | Display name | Description |
-|---|---|---|---|
-| Pro Monthly | `…pro.monthly` | Premium Monthly | Unlock all premium features, billed monthly. |
-| Pro Yearly | `…pro.yearly` | Premium Yearly | Unlock all premium features, billed yearly. |
-
-Promo **Image** section empty on both. Review screenshot + notes present on Yearly.
-
-**26 Aug action:** Reply → Update Review → Resubmit **only** app 8 + group + Pro Monthly + Pro Yearly. Drafts untouched / not attached.
+| Reference | Product ID prefix |
+|---|---|
+| monthly / yearly / lifetime | `…subscription.*` |
+| Pro Lifetime | `…pro.lifetime` |
 
 ---
 
@@ -57,14 +32,5 @@ Promo **Image** section empty on both. Review screenshot + notes present on Year
 - **Name:** Shwaas: Pranayama & Breathwork  
 - **Apple ID:** `6739750342`  
 - **Bundle:** `com.tranquilwaters.shwaas`  
-- **Build:** **8** only (build 7 = Prana Health — never)  
+- **Build:** **8** only  
 - **Ship branch:** `fix/2.1b-subscribed-confirm` — do not merge `main` for upload  
-
----
-
-## Related (mix mat)
-
-- UnlockYou / Gratitude — alag app (`gratitudedaily`)  
-- Unflinch / Hydrate — alag  
-
-Historical 22 Aug stuck-session detail preserved in git history / earlier handoff notes if needed.
