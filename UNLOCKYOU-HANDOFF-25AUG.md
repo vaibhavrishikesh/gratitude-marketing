@@ -27,7 +27,7 @@ Forces onboarding even if completed. Fresh install after pull if sim looks stale
 
 | # | Screen | Visual |
 |---|---|---|
-| 1 Hook | Compact sun-heart logo + horizontal coral leaf band + big **38** (rounded) |
+| 1 Hook | Compact sun-heart logo + **full-width ripple glow** (`UnlockYouRippleGlow`) + big **38** (rounded) |
 | 2 Promise | `OnboardingLogoHero` (sun-heart) |
 | 3 Time sink | Logo hero |
 | 4 Desire | Logo hero |
